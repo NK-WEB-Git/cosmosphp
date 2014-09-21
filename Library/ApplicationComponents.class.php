@@ -2,7 +2,7 @@
 
 namespace Library;
 
-class ApplicationComponents {
+abstract class ApplicationComponents {
 
 	protected $app;
 
