@@ -9,9 +9,8 @@
                 <a href="<?= $one->getUrl(); ?>"><?= $one->titre; ?></a>
             </h2>
 
-            <p>
-                <?= $one->getExtrait(); ?>
-            </p>
+            <?= $one->getExtrait(); ?>
+
             <?php
         }
     ?>

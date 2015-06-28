@@ -42,4 +42,21 @@ class Database {
         return $data;
     }
 
+    public function prepare($statement, $attributes, $className, $one = false) {
+
+        $result = $this->getPDO()->prepare($statement);
+        $result->execute($attributes);
+
+        $result->setFetchMode(PDO::FETCH_CLASS, $className);
+
+        if($one) {
+            $data = $result->fetch();
+        }
+        else {
+            $data = $result->fetchAll();
+        }
+
+        return $data;
+    }
+
 }

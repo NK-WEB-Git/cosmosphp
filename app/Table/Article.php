@@ -11,6 +11,8 @@ class Article {
 
     public function getExtrait() {
 
-        return $this->contenu;
+        $html = '<p>' .$this->contenu. '</p>';
+        $html .= '<p><a href="'.$this->getUrl().'">Voir la suite</a></p>';
+        return $html;
     }
 }
