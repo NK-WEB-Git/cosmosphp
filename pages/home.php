@@ -10,9 +10,12 @@ try {
 
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $count = $dbh->exec('INSERT INTO article SET titre="Loup de Wall Street", contenu="Grand film avec Leonardo", date="'.date('Y-m-d H:i:s').'"');
 
-    var_dump($count);
+    $result = $dbh->query('SELECT * FROM article');
+
+    $data = $result->fetchAll(PDO::FETCH_OBJ);
+
+    var_dump($data[0]->titre);
 
 } catch (PDOException $e) {
     echo 'Connexion échouée : ' . $e->getMessage();
