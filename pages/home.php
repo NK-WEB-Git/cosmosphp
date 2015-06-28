@@ -1,21 +1,15 @@
 <?php
 
 /* Connexion à une base ODBC avec l'invocation de pilote */
-$dsn = 'mysql:dbname=blog;host=localhost';
-$user = 'root';
-$password = 'root';
+
 
 try {
-    $dbh = new PDO($dsn, $user, $password);
 
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $database = new App\Database('blog');
 
+    $data = $database->query('SELECT * FROM article');
 
-    $result = $dbh->query('SELECT * FROM article');
-
-    $data = $result->fetchAll(PDO::FETCH_OBJ);
-
-    var_dump($data[0]->titre);
+    var_dump($data[0]->contenu);
 
 } catch (PDOException $e) {
     echo 'Connexion échouée : ' . $e->getMessage();
