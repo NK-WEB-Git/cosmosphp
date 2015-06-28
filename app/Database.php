@@ -31,13 +31,13 @@ class Database {
         return $this->pdo;
     }
 
-    public function query($statement) {
+    public function query($statement, $className) {
 
 
         $result = $this->getPDO()->query($statement);
 
 
-        $data = $result->fetchAll(PDO::FETCH_OBJ);
+        $data = $result->fetchAll(PDO::FETCH_CLASS, $className);
 
         return $data;
     }

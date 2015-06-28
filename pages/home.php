@@ -1,12 +1,17 @@
 <ul>
     <?php
 
-        $data = $db->query('SELECT * FROM article');
+        $data = $db->query('SELECT * FROM article','App\Table\Article');
+
         foreach($data as $one) {
             ?>
-            <li>
-                <a href="index.php?p=post&id=<?= $one->id; ?>"><?= $one->titre; ?></a>
-            </li>
+            <h2>
+                <a href="<?= $one->getUrl(); ?>"><?= $one->titre; ?></a>
+            </h2>
+
+            <p>
+                <?= $one->getExtrait(); ?>
+            </p>
             <?php
         }
     ?>
