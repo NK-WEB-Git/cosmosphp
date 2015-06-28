@@ -21,7 +21,7 @@ if($p === 'home') {
 
 	require '../pages/home.php';
 }
-else if($p === 'single') {
+else if($p === 'article') {
 
 require '../pages/single.php';
 }

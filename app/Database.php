@@ -22,7 +22,7 @@ class Database {
 
     private function getPDO() {
 
-        if($this->pdo == NULL) {
+        if($this->pdo === NULL) {
             $pdo = new PDO('mysql:dbname=blog;host=localhost', 'root', 'root');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
