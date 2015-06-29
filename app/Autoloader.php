@@ -17,7 +17,7 @@ class Autoloader {
 			$className = str_replace(__NAMESPACE__ .'\\', '', $className);
 			$className = str_replace('\\', '/', $className);
 
-			require __DIR__ .'/'. $className .'.php';
+            require __DIR__ .'/'. $className .'.php';
 		}
 
 	}

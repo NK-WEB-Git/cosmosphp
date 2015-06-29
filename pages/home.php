@@ -1,7 +1,7 @@
 <ul>
     <?php
 
-        $data = $db->query('SELECT * FROM article','App\Table\Article');
+        $data = App\App::getDatabase()->query('SELECT * FROM article','App\Table\Article');
 
         foreach($data as $one) {
             ?>
