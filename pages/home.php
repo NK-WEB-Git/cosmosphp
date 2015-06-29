@@ -1,18 +1,34 @@
-<ul>
-    <?php
+<?php
 
-        $data = App\Table\Article::getLastWithCategories();
+    $data = App\Table\Article::getLastWithCategories();
 
-        foreach($data as $one) {
-            ?>
-            <h2>
-                <a href="<?= $one->url; ?>"><?= $one->titre; ?></a>
-            </h2>
-            <p><em><?= $one->categorie ?></em></p>
+    foreach($data as $one) {
+        ?>
+        <h2>
+            <a href="<?= $one->url; ?>"><?= $one->titre; ?></a>
+        </h2>
+        <p><em><?= $one->categorie ?></em></p>
 
-            <?= $one->extrait; ?>
+        <?= $one->extrait; ?>
 
-            <?php
-        }
+        <?php
+    }
+?>
+
+<h1>Liste des categories de l'appli</h1>
+
+<?php
+
+$allCategories = App\Table\Categorie::getLast();
+
+foreach($allCategories as $categorie) {
     ?>
-</ul>
+    <p>
+        <a href="<?= $categorie->url; ?>"><?= $categorie->titre; ?></a>
+    <p>
+
+<?php
+}
+
+?>
+
