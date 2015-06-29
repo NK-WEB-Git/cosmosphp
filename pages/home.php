@@ -19,7 +19,7 @@
 
 <?php
 
-$allCategories = App\Table\Categorie::getLast();
+$allCategories = App\Table\Categorie::all();
 
 foreach($allCategories as $categorie) {
     ?>

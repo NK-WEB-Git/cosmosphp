@@ -3,12 +3,9 @@
 namespace App\Table;
 use App\App;
 
-class Article {
+class Article extends Table {
 
-    public static function getLast() {
-
-        return App::getDatabase()->query('SELECT * FROM article', __CLASS__);
-    }
+    protected static $table = 'article';
 
     public static function getLastWithCategories() {
 
