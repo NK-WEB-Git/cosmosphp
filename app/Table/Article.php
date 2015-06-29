@@ -1,8 +1,20 @@
 <?php
 
 namespace App\Table;
+use App\App;
 
 class Article {
+
+    public static function getLast() {
+
+        return App::getDatabase()->query('SELECT * FROM article', __CLASS__);
+    }
+
+    public function __get($key) {
+        $method = 'get' .ucfirst($key);
+        $this->$key = $this->$method();
+        return $this->$key;
+    }
 
     public function getUrl() {
 

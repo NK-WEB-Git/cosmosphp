@@ -1,15 +1,15 @@
 <ul>
     <?php
 
-        $data = App\App::getDatabase()->query('SELECT * FROM article','App\Table\Article');
+        $data = App\Table\Article::getLast();
 
         foreach($data as $one) {
             ?>
             <h2>
-                <a href="<?= $one->getUrl(); ?>"><?= $one->titre; ?></a>
+                <a href="<?= $one->url; ?>"><?= $one->titre; ?></a>
             </h2>
 
-            <?= $one->getExtrait(); ?>
+            <?= $one->extrait; ?>
 
             <?php
         }
