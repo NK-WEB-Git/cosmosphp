@@ -10,6 +10,17 @@ class Article {
         return App::getDatabase()->query('SELECT * FROM article', __CLASS__);
     }
 
+    public static function getLastWithCategories() {
+
+        return App::getDatabase()->query('
+            SELECT article.id, article.titre, article.contenu, categories.titre as categorie
+            FROM article
+            LEFT JOIN categories
+              ON categories.id = article.category_id'
+            ,__CLASS__);
+
+    }
+
     public function __get($key) {
         $method = 'get' .ucfirst($key);
         $this->$key = $this->$method();
